@@ -64,8 +64,8 @@ Instead, the goal is to gain a deeper understanding of:
 **Output**
 
 ```text
-Network Address : 192.168.1.0
-Subnet Mask     : 255.255.255.0
+Network Address  : 192.168.1.0
+Subnet Mask      : 255.255.255.0
 Broadcast        : 192.168.1.255
 Usable Hosts     : 254
 ```
