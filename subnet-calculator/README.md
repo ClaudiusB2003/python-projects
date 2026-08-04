@@ -110,7 +110,7 @@ The structure will evolve as the project grows.
 
 ---
 
-##Author 
+## Author 
 
 Claudius B. Apprentice IT Specialist – System Integration
 
