@@ -12,14 +12,14 @@ This project is part of my learning journey and is being developed step by step.
 
 * take user input
 * return network object
-
-### Planned
-
-* Parse IPv4 addresses in CIDR notation
 * Display network address
 * Display subnet mask
 * Display broadcast address
 * Display the maximum number of usable hosts
+
+### Planned
+
+* Parse IPv4 addresses in CIDR notation
 * Input validation with helpful error messages
 * IPv6 support
 * Binary representation of subnet masks
@@ -111,6 +111,10 @@ The structure will evolve as the project grows.
 * Web version using Flask or FastAPI
 
 ---
+
+##Author 
+
+Claudius Blazek
 
 ## License
 
