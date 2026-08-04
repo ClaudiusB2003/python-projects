@@ -10,8 +10,8 @@ This project is part of my learning journey and is being developed step by step.
 
 ### Current
 
-* take user_input
-* 
+* take user input
+* return network object
 
 ### Planned
 
