@@ -10,6 +10,9 @@ This project is part of my learning journey and is being developed step by step.
 
 ### Current
 
+* take user_input
+* 
+
 ### Planned
 
 * Parse IPv4 addresses in CIDR notation
