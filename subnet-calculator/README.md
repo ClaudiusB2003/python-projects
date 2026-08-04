@@ -81,9 +81,7 @@ Usable Hosts     : 254
 subnet-calculator/
 │
 ├── main.py
-├── README.md
-├── .gitignore
-└── requirements.txt
+└── README.md
 ```
 
 The structure will evolve as the project grows.
@@ -114,7 +112,7 @@ The structure will evolve as the project grows.
 
 ##Author 
 
-Claudius Blazek
+Claudius B. Apprentice IT Specialist – System Integration
 
 ## License
 
