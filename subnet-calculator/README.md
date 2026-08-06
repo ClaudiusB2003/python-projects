@@ -6,14 +6,16 @@ This project is part of my learning journey and is being developed step by step.
 
 ---
 
-## Features (v1.0)
+## Features 
 
 - Accepts IPv4 addresses in CIDR notation
 - Calculates network address
 - Calculates broadcast address
 - Displays subnet mask
 - Displays maximum usable hosts
+- Displays First and Last usable host
 - Detects whether the input IP is private
+- Variable Length Subnet Masking (VLSM)
 
 ### Planned
 
@@ -21,7 +23,6 @@ This project is part of my learning journey and is being developed step by step.
 * Input validation with helpful error messages
 * IPv6 support
 * Binary representation of subnet masks
-* Variable Length Subnet Masking (VLSM)
 * Export results as JSON or CSV
 * Colorized terminal output
 * Unit tests
