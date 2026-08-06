@@ -17,10 +17,10 @@ network_info = get_network()
 network, ip_addr = network_info #tuple unpackaging 
 
 def display_information(network, ip_addr): #displays informations of the network 
-    print(network.network_address) #display network address
-    print(network.broadcast_address) #display broadcast address
-    print(network.netmask) #display netmask
-    print(network.num_addresses - 2) #display max. number of hosts 
-    print(ip_addr.is_private) #checks, if address is part of the private ip address range 
+    print(f"Network Address: {network.network_address}") #display network address
+    print(f"Broadcast: {network.broadcast_address:}") #display broadcast address
+    print(f"Subnet Mask: {network.netmask}") #display netmask
+    print(f"Usable Hosts: {network.num_addresses - 2}") #display max. number of hosts 
+    print(f"Private Address: {ip_addr.is_private}") #checks, if address is part of the private ip address range 
 
 display_information(network, ip_addr)
