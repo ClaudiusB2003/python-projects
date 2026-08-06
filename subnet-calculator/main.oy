@@ -1,0 +1,5 @@
+label = "Broadcast"
+print(f"|{label:<20}|")
+
+label = "Network Address"
+print(f"|{label:<20}|")
