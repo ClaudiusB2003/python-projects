@@ -12,7 +12,6 @@ This project follows Semantic Versioning.
 - Planned IPv6 support
 - Planned binary representation
 - Planned first/last usable host calculation
-
 ---
 
 ## [1.0.0] - 2026-08-06
@@ -27,7 +26,7 @@ This project follows Semantic Versioning.
 - Private IP detection using `is_private`
 - Modular code structure with separate functions
 
-## [1.0.1] - 2026-08-06
+## [1.1.0] - 2026-08-06
 - Improved console output readability
 - Refactored code into separate functions
 
