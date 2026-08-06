@@ -27,6 +27,20 @@ This project follows Semantic Versioning.
 - Private IP detection using `is_private`
 - Modular code structure with separate functions
 
+## [1.0.1] - 2026-08-06
+- Improved console output readability
+- Refactored code into separate functions
+
+### Added
+- User input validation
+- CIDR notation support
+- Network address calculation
+- Broadcast address calculation
+- Subnet mask display
+- Maximum usable host calculation
+- Private IP detection using `is_private`
+- Modular code structure with separate functions
+
 ### Fixed
 - Correct handling of host addresses using `strict=False`
 
