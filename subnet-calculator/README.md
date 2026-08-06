@@ -6,16 +6,14 @@ This project is part of my learning journey and is being developed step by step.
 
 ---
 
-## Features
+## Features (v1.0)
 
-### Current
-
-* take user input
-* return network object
-* Display network address
-* Display subnet mask
-* Display broadcast address
-* Display the maximum number of usable hosts
+- Accepts IPv4 addresses in CIDR notation
+- Calculates network address
+- Calculates broadcast address
+- Displays subnet mask
+- Displays maximum usable hosts
+- Detects whether the input IP is private
 
 ### Planned
 
