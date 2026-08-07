@@ -7,12 +7,12 @@ def main_menu():
     print("=" * 45)
     print("") 
     choice = int(input(
-    '1. Network Information\n'
-    ''
-    '2. Subnet Calculator\n'
-    ''
-    '3. Exit\n'
-    ''       
+    '1. Network Information\n\n'
+    
+    '2. Subnet Calculator\n\n'
+    
+    '3. Exit\n\n'
+           
     'Choice:'))
     print("")
     if choice not in numbers:
