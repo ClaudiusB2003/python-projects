@@ -6,35 +6,41 @@ This project is part of my learning journey and is being developed step by step.
 
 ---
 
-## Features 
+## Screenshot
+
+![Subnet Calculator Screenshot](screenshot.png)
+
+---
+
+## Features
 
 - Accepts IPv4 addresses in CIDR notation
 - Calculates network address
 - Calculates broadcast address
-- Displays subnet mask
+- Displays subnet mask and wildcard mask
+- Displays CIDR prefix and network class
+- Displays first and last usable host
 - Displays maximum usable hosts
-- Displays First and Last usable host
 - Detects whether the input IP is private
-- Variable Length Subnet Masking (VLSM)
+- Interactive "calculate another subnet" loop
 
 ### Planned
 
-* Parse IPv4 addresses in CIDR notation
-* Input validation with helpful error messages
-* IPv6 support
-* Binary representation of subnet masks
-* Export results as JSON or CSV
-* Colorized terminal output
-* Unit tests
+- Variable Length Subnet Masking (VLSM)
+- Input validation with helpful error messages
+- IPv6 support
+- Binary representation of subnet masks
+- Export results as JSON or CSV
+- Colorized terminal output
+- Unit tests
 
 ---
 
 ## Technologies
 
-* Python 3
-* Standard Library
-
-  * `ipaddress`
+- Python 3
+- Standard Library
+  - `ipaddress`
 
 No external dependencies are required.
 
@@ -43,15 +49,24 @@ No external dependencies are required.
 ## Project Goal
 
 The purpose of this project is **not** simply to build another subnet calculator.
-
 Instead, the goal is to gain a deeper understanding of:
 
-* IPv4 addressing
-* CIDR notation
-* Network calculations
-* Python project structure
-* Error handling
-* Writing clean, maintainable code
+- IPv4 addressing
+- CIDR notation
+- Network calculations
+- Python project structure
+- Error handling
+- Writing clean, maintainable code
+
+---
+
+## Usage
+
+```bash
+python main.py
+```
+
+You will be prompted to enter an IP address in CIDR notation.
 
 ---
 
@@ -60,16 +75,25 @@ Instead, the goal is to gain a deeper understanding of:
 **Input**
 
 ```text
-192.168.1.42/24
+10.16.1.1/8
 ```
 
 **Output**
 
 ```text
-Network Address  : 192.168.1.0
-Subnet Mask      : 255.255.255.0
-Broadcast        : 192.168.1.255
-Usable Hosts     : 254
+========================================
+            Subnet Information
+========================================
+Network Address     : 10.0.0.0
+Broadcast           : 10.255.255.255
+Subnet Mask         : 255.0.0.0
+Wildcard Mask       : 0.255.255.255
+CIDR Prefix         : 8
+First Host          : 10.0.0.1
+Last Host           : 10.255.255.254
+Usable Hosts        : 16777214
+Private Address     : Yes
+Network class       : A
 ```
 
 ---
@@ -90,29 +114,29 @@ The structure will evolve as the project grows.
 
 ## Learning Objectives
 
-* Practice Python fundamentals
-* Learn to work with the `ipaddress` module
-* Improve networking knowledge
-* Build software incrementally
-* Learn basic software design principles
-* Use Git and GitHub for version control
+- Practice Python fundamentals
+- Learn to work with the `ipaddress` module
+- Improve networking knowledge
+- Build software incrementally
+- Learn basic software design principles
+- Use Git and GitHub for version control
 
 ---
 
 ## Future Ideas
 
-* Automatic subnet recommendations
-* Route summarization
-* Supernetting
-* Interactive menu
-* GUI version
-* Web version using Flask or FastAPI
+- Automatic subnet recommendations
+- Route summarization
+- Supernetting
+- Interactive menu
+- GUI version
+- Web version using Flask or FastAPI
 
 ---
 
-## Author 
+## Author
 
-Claudius B. Apprentice IT Specialist – System Integration
+Claudius B. — Apprentice IT Specialist, System Integration
 
 ## License
 
