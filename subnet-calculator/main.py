@@ -1,4 +1,5 @@
 import ipaddress
+
 def get_network(): #takes user_input
     while True:
         try:
@@ -13,23 +14,32 @@ def get_network(): #takes user_input
             print("wrong input! Please enter a valid ip_address...")
             continue
 
-network_info = get_network() 
-network, ip_addr = network_info #tuple unpackaging 
-
-def display_information(network, ip_addr): #displays informations of the network
+def calculate_informations(network, ip_addr): #calculates informations for display
     private_status = "No"
     if ip_addr.is_private:
-        private_status = "Yes"
-    print("=" * 39)
-    print("Subnet Information".center(39))
-    print("=" * 39)
+        private_status = "Yes" #checks, if address is part of the private ip address range 
     network_address = network.network_address
+    network_class = "."
+    first_octet = int(str(network_address).split(".")[0])
     broadcast_address = network.broadcast_address
     subnet_mask = network.netmask
+    wildcard_mask = network.hostmask
     prefix = network.prefixlen
     first_host = network.network_address + 1
     last_host = network.broadcast_address - 1
     usable_hosts = network.num_addresses - 2
+
+    if first_octet >= 1 and first_octet < 127:
+        network_class = "A"
+    elif first_octet >= 128 and first_octet <= 191:
+        network_class = "B"
+    elif first_octet >= 192 and first_octet <= 223:
+        network_class = "C"
+    elif first_octet >= 224 and first_octet <= 239:
+        network_class = "D"
+    else:
+        network_class = "E"
+    
     if network.prefixlen == 32:
         usable_hosts = 1
         first_host = broadcast_address
@@ -39,13 +49,44 @@ def display_information(network, ip_addr): #displays informations of the network
         last_host = broadcast_address
         first_host = network_address
 
-    print(f"{'Network Address':<20}: {network_address}") #display network address
-    print(f"{'Broadcast':<20}: {broadcast_address}") #display broadcast address
-    print(f"{'Subnet Mask':<20}: {subnet_mask}") #display netmask
-    print(f"{'CIDR Prefix':<20}: {prefix}") #CIDR representation of the netmask
-    print(f"{'First Host':<20}: {first_host}") #display first host address
-    print(f"{'Last Host':<20}: {last_host}") #display last host address
-    print(f"{'Usable Hosts':<20}: {usable_hosts}") #display max. number of hosts 
-    print(f"{'Private Address':<20}: {private_status}") #checks, if address is part of the private ip address range 
+    return {
+    "network_address": network_address,
+    "broadcast_address": broadcast_address,
+    "subnet_mask": subnet_mask,
+    "wildcard_mask": wildcard_mask,
+    "prefix": prefix,
+    "first_host": first_host,
+    "last_host": last_host,
+    "usable_hosts": usable_hosts,
+    "private_status": private_status,
+    "network_class": network_class
+    }
 
-display_information(network, ip_addr)
+def display_informations(data): #displays Values
+    print("=" * 39)
+    print("Subnet Information".center(39))
+    print("=" * 39)
+    print(f"{'Network Address':<20}: {data['network_address']}") 
+    print(f"{'Broadcast':<20}: {data['broadcast_address']}") 
+    print(f"{'Subnet Mask':<20}: {data['subnet_mask']}") 
+    print(f"{'Wildcard Mask':<20}: {data['wildcard_mask']}") 
+    print(f"{'CIDR Prefix':<20}: {data['prefix']}") 
+    print(f"{'First Host':<20}: {data['first_host']}") 
+    print(f"{'Last Host':<20}: {data['last_host']}") 
+    print(f"{'Usable Hosts':<20}: {data['usable_hosts']}") 
+    print(f"{'Private Address':<20}: {data['private_status']}") 
+    print(f"{'Network class':<20}: {data['network_class']}") 
+
+
+while True:
+    network_info = get_network() 
+    network, ip_addr = network_info #tuple unpackaging 
+    data = calculate_informations(network, ip_addr)
+    display_informations(data)
+    finish = input(f"Calculate another subnet? Y/N ")
+    up = finish.upper()
+    if up == "Y" or up == "YES":
+        continue
+    break
+
+    
