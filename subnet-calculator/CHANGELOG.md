@@ -46,5 +46,11 @@ This project follows Semantic Versioning.
 - Improved internal calculation of host information
 - Cleaner console output implementation
 
+
+## [1.3.0] - 2026-08-07
+
+### Changed
+- Refactoring of the python code
+
 ### Notes
 - Initial public release.
