@@ -8,10 +8,10 @@ This project follows Semantic Versioning.
 
 ## [Unreleased]
 
-### Added
-- Planned IPv6 support
-- Planned binary representation
-- Planned first/last usable host calculation
+### Planned
+- IPv6 support
+- network_types
+- binary representation 
 ---
 
 ## [1.0.0] - 2026-08-06
