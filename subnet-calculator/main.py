@@ -1,5 +1,25 @@
 import ipaddress
 
+def main_menu():
+    numbers = [1, 2, 3]
+    print("=" * 45)
+    print("Welcome to the Subnet Calculator".center(45))
+    print("=" * 45)
+    print("") 
+    choice = int(input(
+    '1. Network Information\n'
+    ''
+    '2. Subnet Calculator\n'
+    ''
+    '3. Exit\n'
+    ''       
+    'Choice:'))
+    print("")
+    if choice not in numbers:
+        print("Please choose 1, 2 or 3")
+    else:
+        return choice
+
 def get_network(): #takes user_input
     while True:
         try:
@@ -79,18 +99,19 @@ def display_informations(data): #displays Values
     print(f"{'Private Address':<20}: {data['private_status']}") 
     print(f"{'Network class':<20}: {data['network_class']}") 
 
-
 while True:
-    network_info = get_network() 
-    network, ip_addr = network_info #tuple unpackaging 
-    data = calculate_informations(network, ip_addr)
-    display_informations(data)
-    print("")
-    finish = input(f"Calculate another subnet? Y/N ")
-    print("")
-    up = finish.upper()
-    if up == "Y" or up == "YES":
+    choice = main_menu()
+   
+    if choice == 1:
+        network_info = get_network() 
+        network, ip_addr = network_info #tuple unpackaging 
+        data = calculate_informations(network, ip_addr)
+        display_informations(data)
+        print("")
+        finish = input(f"Press Enter to return")
+        print("")
         continue
-    break
-
+        
+    elif choice == 3:
+        break
     
