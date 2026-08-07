@@ -4,6 +4,7 @@ def get_network(): #takes user_input
     while True:
         try:
             user_input = input("Please input an ip address (CIDR format): ") #asks user for an ip-address
+            print("")
             network = ipaddress.IPv4Network(user_input, strict=False)
             address = user_input.split("/") #get the ip address
             ip = address[0]
@@ -11,6 +12,7 @@ def get_network(): #takes user_input
             return network, ip_address #returns network object and ip_address
         
         except ValueError:
+            print("")
             print("wrong input! Please enter a valid ip_address...")
             continue
 
@@ -83,7 +85,9 @@ while True:
     network, ip_addr = network_info #tuple unpackaging 
     data = calculate_informations(network, ip_addr)
     display_informations(data)
+    print("")
     finish = input(f"Calculate another subnet? Y/N ")
+    print("")
     up = finish.upper()
     if up == "Y" or up == "YES":
         continue
