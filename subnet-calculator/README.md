@@ -6,7 +6,7 @@ This project is part of my learning journey and is being developed step by step.
 
 ---
 
-## Screenshot
+## Version 1
 
 ![Subnet Calculator Screenshot](screenshot.png)
 
