@@ -1,37 +1,12 @@
 import ipaddress
 
-def main_menu():
-<<<<<<< HEAD
-    while True:
-        print("=" * 45)
-        print("Welcome to the Subnet Calculator".center(45))
-        print("=" * 45)
-        print("")
-        try: 
-            choice = int(input(
-            '1. Network Information\n'
-            ''
-            '2. Subnet Calculator\n'
-            ''
-            '3. Exit\n'
-            ''       
-            'Choice:'))
-            print("")
-            if choice == 1 or choice == 2 or choice == 3:
-                return choice
-            else:
-                print("please pick a right choice")
-                print("")
-        except ValueError:
-            print("please enter a valid number")
-            print("")
-=======
+def main_menu(): 
     numbers = [1, 2, 3]
     print("=" * 45)
     print("Welcome to the Subnet Calculator".center(45))
     print("=" * 45)
     print("") 
-    choice = int(input(
+    choice: int = int(input(
     '1. Network Information\n\n'
     
     '2. Subnet Calculator\n\n'
@@ -44,7 +19,6 @@ def main_menu():
         print("Please choose 1, 2 or 3")
     else:
         return choice
->>>>>>> dcdf156574c371f06d7cf01a96f869d70350cdee
 
 def get_network(): #takes user_input
     while True:
@@ -110,7 +84,7 @@ def calculate_informations(network, ip_addr): #calculates informations for displ
     "network_class": network_class
     }
 
-def display_informations(data): #displays Values
+def display_informations(data: tuple): #displays Values
     print("=" * 39)
     print("Subnet Information".center(39))
     print("=" * 39)
