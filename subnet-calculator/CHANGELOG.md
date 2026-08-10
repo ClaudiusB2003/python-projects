@@ -51,7 +51,7 @@ This project follows Semantic Versioning.
 
 ### Changed
 - Refactoring of the python code
-- improved 
+- improved input handling
 
 ### Notes
 - Initial public release.
