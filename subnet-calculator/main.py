@@ -1,6 +1,7 @@
 import ipaddress
 
 def main_menu():
+<<<<<<< HEAD
     while True:
         print("=" * 45)
         print("Welcome to the Subnet Calculator".center(45))
@@ -24,6 +25,26 @@ def main_menu():
         except ValueError:
             print("please enter a valid number")
             print("")
+=======
+    numbers = [1, 2, 3]
+    print("=" * 45)
+    print("Welcome to the Subnet Calculator".center(45))
+    print("=" * 45)
+    print("") 
+    choice = int(input(
+    '1. Network Information\n\n'
+    
+    '2. Subnet Calculator\n\n'
+    
+    '3. Exit\n\n'
+           
+    'Choice:'))
+    print("")
+    if choice not in numbers:
+        print("Please choose 1, 2 or 3")
+    else:
+        return choice
+>>>>>>> dcdf156574c371f06d7cf01a96f869d70350cdee
 
 def get_network(): #takes user_input
     while True:
