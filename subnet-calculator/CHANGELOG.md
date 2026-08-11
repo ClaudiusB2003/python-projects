@@ -11,7 +11,6 @@ This project follows Semantic Versioning.
 ### Planned
 - IPv6 support
 - network_types
-- binary representation 
 ---
 
 ## [1.0.0] - 2026-08-06
@@ -63,6 +62,11 @@ This project follows Semantic Versioning.
 
 ### Changed
 - Reused `calculate_informations()` and `display_informations()` for subnet output to avoid code duplication
+
+## [2.1.0] - 2026-08-11
+
+### Added
+- Binary representation of subnet mask
 
 ### Notes
 - Initial public release.

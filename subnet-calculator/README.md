@@ -23,8 +23,6 @@ This project is part of my learning journey and is being developed step by step.
 - Interactive "calculate another subnet" loop
 
 ### Planned
-- Variable Length Subnet Masking (VLSM)
-- Input validation with helpful error messages
 - IPv6 support
 - Binary representation of subnet masks
 - Export results as JSON or CSV

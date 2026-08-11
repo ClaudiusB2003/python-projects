@@ -52,6 +52,14 @@ def calculate_informations(network, ip_addr): #calculates informations for displ
     first_octet = int(str(network_address).split(".")[0])
     broadcast_address = network.broadcast_address
     subnet_mask = network.netmask
+    octects = str(subnet_mask).split(".")
+    new = []
+    for number in octects:
+        as_int = int(number)
+        as_bin = format(as_int, '08b')
+        new.append(as_bin)
+    
+    subnet_mask_binary = ".".join(new)
     wildcard_mask = network.hostmask
     prefix = network.prefixlen
     first_host = network.network_address + 1
@@ -82,6 +90,7 @@ def calculate_informations(network, ip_addr): #calculates informations for displ
     "network_address": network_address,
     "broadcast_address": broadcast_address,
     "subnet_mask": subnet_mask,
+    "binary_mask": subnet_mask_binary,
     "wildcard_mask": wildcard_mask,
     "prefix": prefix,
     "first_host": first_host,
@@ -127,7 +136,8 @@ def display_informations(data: tuple): #displays Values
     print("=" * 39)
     print(f"{'Network Address':<20}: {data['network_address']}") 
     print(f"{'Broadcast':<20}: {data['broadcast_address']}") 
-    print(f"{'Subnet Mask':<20}: {data['subnet_mask']}") 
+    print(f"{'Subnet Mask':<20}: {data['subnet_mask']}")
+    print(f"{'Binary Mask':<20}: {data['binary_mask']}")  
     print(f"{'Wildcard Mask':<20}: {data['wildcard_mask']}") 
     print(f"{'CIDR Prefix':<20}: {data['prefix']}") 
     print(f"{'First Host':<20}: {data['first_host']}") 
@@ -157,4 +167,5 @@ while True:
         finish = input(f"Press Enter to return")
         print("")
         continue
+    break
     
