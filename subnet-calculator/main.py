@@ -1,24 +1,31 @@
 import ipaddress
 
-def main_menu(): 
-    numbers = [1, 2, 3]
-    print("=" * 45)
-    print("Welcome to the Subnet Calculator".center(45))
-    print("=" * 45)
-    print("") 
-    choice: int = int(input(
-    '1. Network Information\n\n'
+def main_menu():
+    while True:
+        try:
+            numbers = [1, 2, 3]
+            print("=" * 45)
+            print("Welcome to the Subnet Calculator".center(45))
+            print("=" * 45)
+            print("") 
+            choice: int = int(input(
+            '1. Network Information\n\n'
     
-    '2. Subnet Calculator\n\n'
+            '2. Subnet Calculator\n\n'
     
-    '3. Exit\n\n'
+            '3. Exit\n\n'
            
-    'Choice:'))
-    print("")
-    if choice not in numbers:
-        print("Please choose 1, 2 or 3")
-    else:
-        return choice
+            'Choice:'))
+            print("")
+            if choice not in numbers:
+                print("Please choose 1, 2 or 3")
+                print("")
+            else:
+                return choice
+        except ValueError:
+            print("")
+            print("please enter a valid number")
+            print("")
 
 def get_network(): #takes user_input
     while True:
@@ -84,6 +91,36 @@ def calculate_informations(network, ip_addr): #calculates informations for displ
     "network_class": network_class
     }
 
+def subnet_calculator(network):
+    while True:
+        try:
+            user_input: int = int(input("How many subnets do you need?: ")) #take int as user input
+            if user_input <= 0:
+                print("please enter a valid number")
+                continue
+            else:
+                break
+        except ValueError:
+            print("please enter a valid number")
+            continue
+    amount_of_subnets = user_input
+    x: int = 0
+    while True:
+        if 2 ** x >= amount_of_subnets:
+            break
+        else:
+            x += 1        
+    prefix = network.prefixlen
+    new_prefix = prefix + x
+    if new_prefix > 32:
+        print("prefix is too long")
+        return 
+    new = network.subnets(new_prefix=new_prefix)
+    for subnet in new:
+      calc = calculate_informations(subnet, subnet.network_address)
+      display_informations(calc)
+    return
+            
 def display_informations(data: tuple): #displays Values
     print("=" * 39)
     print("Subnet Information".center(39))
@@ -112,6 +149,12 @@ while True:
         print("")
         continue
         
-    elif choice == 3:
-        break
+    elif choice == 2:
+        network_info = get_network()
+        network, ip_addr = network_info #tuple unpackaging 
+        subnet_calculator(network)
+        print("")
+        finish = input(f"Press Enter to return")
+        print("")
+        continue
     
