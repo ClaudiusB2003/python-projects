@@ -21,10 +21,10 @@ This project is part of my learning journey and is being developed step by step.
 - Displays maximum usable hosts per subnet
 - Detects whether the input IP is private
 - Interactive "calculate another subnet" loop
+- Binary representation of subnet masks
 
 ### Planned
 - IPv6 support
-- Binary representation of subnet masks
 - Export results as JSON or CSV
 - Colorized terminal output
 - Unit tests
