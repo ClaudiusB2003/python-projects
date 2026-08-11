@@ -46,12 +46,23 @@ This project follows Semantic Versioning.
 - Improved internal calculation of host information
 - Cleaner console output implementation
 
-
 ## [1.3.0] - 2026-08-07
 
 ### Changed
 - Refactoring of the python code
 - improved input handling
+
+## [2.0.0] - 2026-08-11
+
+### Added
+- Subnet calculator: split a network into subnets based on a desired subnet count
+- Automatic calculation of the required new prefix length (CIDR)
+- Per-subnet display of network address, broadcast address, subnet mask, wildcard mask, first/last usable host and usable host count
+- Input validation for the number of subnets (must be a positive integer)
+- Validation preventing prefix lengths beyond /32
+
+### Changed
+- Reused `calculate_informations()` and `display_informations()` for subnet output to avoid code duplication
 
 ### Notes
 - Initial public release.
