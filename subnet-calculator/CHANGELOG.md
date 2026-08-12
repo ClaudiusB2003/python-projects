@@ -68,5 +68,10 @@ This project follows Semantic Versioning.
 ### Added
 - Binary representation of subnet mask
 
+## [2.2.0] - 2026-08-12
+
+### Added
+- first ipv6 implementation
+
 ### Notes
 - Initial public release.
