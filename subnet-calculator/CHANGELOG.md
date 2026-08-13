@@ -9,7 +9,7 @@ This project follows Semantic Versioning.
 ## [Unreleased]
 
 ### Planned
-- IPv6 support
+- GUI
 - network_types
 ---
 
@@ -68,10 +68,12 @@ This project follows Semantic Versioning.
 ### Added
 - Binary representation of subnet mask
 
-## [2.2.0] - 2026-08-12
+## [2.2.0] - 2026-08-13
 
 ### Added
-- first ipv6 implementation
+- ipv6 implementation
+- ipv6 network info
+- ipv6 subnet info
 
 ### Notes
 - Initial public release.
