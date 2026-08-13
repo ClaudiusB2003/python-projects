@@ -1,0 +1,10 @@
+2026-08-13T13:49:08.296312+02:00 SW13 poe-protod[2950]: Event|7901|LOG_INFO|CDTR|1|Detected powered device on interface 1/1/23. Type:1, Class:3
+2026-08-13T13:49:04.716263+02:00 SW13 log-proxyd[754]: Event|5209|LOG_INFO|CDTR|1|User cibadmin logged in from 10.30.1.43 through SSH session.
+2026-08-13T13:49:00.716220+02:00 SW13 log-proxyd[754]: Event|5210|LOG_ERR|CDTR|1|User cibadmin login from 10.30.1.43 for SSH session failed during password based authentication.
+2026-08-13T13:49:00.314317+02:00 SW13 poe-protod[2950]: Event|7905|LOG_INFO|CDTR|1|Powered device disconnected on interface 1/1/23
+2026-08-13T13:48:59.795550+02:00 SW13 poe-hald[2920]: Event|7902|LOG_INFO|CDTR|1|Powered device power delivery on interface 1/1/23
+2026-08-13T13:48:59.793591+02:00 SW13 poe-protod[2950]: Event|7901|LOG_INFO|CDTR|1|Detected powered device on interface 1/1/23. Type:1, Class:3
+2026-08-13T13:48:52.313392+02:00 SW13 poe-protod[2950]: Event|7905|LOG_INFO|CDTR|1|Powered device disconnected on interface 1/1/23
+2026-08-13T13:48:51.299120+02:00 SW13 poe-hald[2920]: Event|7902|LOG_INFO|CDTR|1|Powered device power delivery on interface 1/1/23
+2026-08-13T13:48:51.297060+02:00 SW13 poe-protod[2950]: Event|7901|LOG_INFO|CDTR|1|Detected powered device on interface 1/1/23. Type:1, Class:3
+2026-08-13T13:48:47.219001+02:00 SW13 log-proxyd[754]: Event|5216|LOG_ERR|CDTR|1|SSH session from 10.30.1.43 for user cibadmin rejected due to failed public key validation
