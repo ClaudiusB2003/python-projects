@@ -4,11 +4,11 @@ def choose_protocol():
     while True:
         try:
             versions = ["ipv4", "ipv6"]
-            print("=" * 65)
-            print("Welcome to the Subnet Calculator!")
+            print("=" * width)
+            print("Welcome to the Subnet Calculator!".center(width))
             print("")
-            print("Please choose a protocol or type 'exit' to leave the programm:".center(45))
-            print("=" * 65)
+            print("Please choose a protocol or type 'exit' to leave the programm:".center(width))
+            print("=" * width)
             print("")
             protocol: str = input(
             'IPv4\n\n'
@@ -17,7 +17,7 @@ def choose_protocol():
         
             'Exit\n\n'
                
-            'Choice:') 
+            'Choice: ') 
             print("")
             protocol = protocol.lower()
             if protocol not in versions and protocol != "exit":
@@ -37,9 +37,9 @@ def main_menu():
     while True:
         try:
             numbers = [1, 2, 3]
-            print("=" * 45)
-            print("Welcome to the IPv4 calculator!".center(45))
-            print("=" * 45)
+            print("=" * width)
+            print("Welcome to the IPv4 calculator!".center(width))
+            print("=" * width)
             print("") 
             choice: int = int(input(
             '1. Network Information\n\n'
@@ -48,7 +48,7 @@ def main_menu():
     
             '3. Exit\n\n'
            
-            'Choice:'))
+            'Choice: '))
             print("")
             if choice not in numbers:
                 print("Please choose 1, 2 or 3")
@@ -64,9 +64,9 @@ def main_menu_ipv6():
     while True:
         try:
             numbers = [1, 2, 3]
-            print("=" * 45)
-            print("Welcome to the IPv6 calculator!".center(45))
-            print("=" * 45)
+            print("=" * width)
+            print("Welcome to the IPv6 calculator!".center(width))
+            print("=" * width)
             print("") 
             choice: int = int(input(
             '1. Network Information\n\n'
@@ -106,17 +106,17 @@ def get_network(): #takes user_input
 def get_network_ipv6():
     while True:
         try:
-            user_input = input("Please input an ipv6 address (CIDR format): ") #asks user for an ip-address
+            user_input = input("Please input an ipv6 address (CIDR format): ") #asks user for an ipv6-address
             print("")
             network = ipaddress.IPv6Network(user_input, strict=False)
-            address = user_input.split("/") #get the ip address
+            address = user_input.split("/") #get the ipv6 address
             ip = address[0]
             ip_address = ipaddress.IPv6Address(ip)
             return network, ip_address #returns network object and ip_address
             
         except ValueError:
             print("")                
-            print("wrong input! Please enter a valid ip_address...")
+            print("wrong input! Please enter a valid ipv6_address...")
             continue
 
 def calculate_informations(network, ip_addr): #calculates informations for display
@@ -176,6 +176,39 @@ def calculate_informations(network, ip_addr): #calculates informations for displ
     "network_class": network_class
     }
 
+def calculate_informations_ipv6(network, ipv6_addr): #calculates informations for display
+    private_status: bool = "No"
+    if ipv6_addr.is_private:
+        private_status = "Yes" #checks, if address is part of the private ip address range 
+    network_address = network.network_address
+    broadcast_address = network.broadcast_address
+    wildcard_mask = network.hostmask
+    prefix = network.prefixlen
+    first_host = network.network_address + 1
+    last_host = network.broadcast_address - 1
+    usable_hosts = network.num_addresses - 2
+    
+    if network.prefixlen == 128:
+        usable_hosts = 1
+        first_host = broadcast_address
+        last_host = broadcast_address
+    elif network.prefixlen == 127:
+        usable_hosts = 2
+        last_host = broadcast_address
+        first_host = network_address
+
+    return {
+    "network_address": network_address,
+    "broadcast_address": broadcast_address,
+    "wildcard_mask": wildcard_mask,
+    "prefix": prefix,
+    "first_host": first_host,
+    "last_host": last_host,
+    "usable_hosts": usable_hosts,
+    "private_status": private_status,
+    }
+
+
 def subnet_calculator(network):
     while True:
         try:
@@ -205,11 +238,42 @@ def subnet_calculator(network):
       calc = calculate_informations(subnet, subnet.network_address)
       display_informations(calc)
     return
+
+
+def subnet_calculator_ipv6(network):
+    while True:
+        try:
+            user_input: int = int(input("How many subnets do you need?: ")) #take int as user input
+            if user_input <= 0:
+                print("please enter a valid number")
+                continue
+            else:
+                break
+        except ValueError:
+            print("please enter a valid number")
+            continue
+    amount_of_subnets = user_input
+    x: int = 0
+    while True:
+        if 2 ** x >= amount_of_subnets:
+            break
+        else:
+            x += 1        
+    prefix = network.prefixlen
+    new_prefix = prefix + x
+    if new_prefix > 128:
+        print("prefix is too long")
+        return 
+    new = network.subnets(new_prefix=new_prefix)
+    for subnet in new:
+      calc = calculate_informations_ipv6(subnet, subnet.network_address)
+      display_informations_ipv6(calc)
+    return
             
 def display_informations(data: tuple): #displays Values
-    print("=" * 45)
-    print("Subnet Information".center(45))
-    print("=" * 45)
+    print("=" * width)
+    print("Subnet Informations".center(width))
+    print("=" * width)
     print(f"{'Network Address':<20}: {data['network_address']}") 
     print(f"{'Broadcast':<20}: {data['broadcast_address']}") 
     print(f"{'Subnet Mask':<20}: {data['subnet_mask']}")
@@ -222,12 +286,24 @@ def display_informations(data: tuple): #displays Values
     print(f"{'Private Address':<20}: {data['private_status']}") 
     print(f"{'Network class':<20}: {data['network_class']}") 
 
+def display_informations_ipv6(data: tuple): #displays Values
+    print("=" * width)
+    print("Subnet Informations (IPv6)".center(width))
+    print("=" * width)
+    print(f"{'Network Address':<20}: {data['network_address']}") 
+    print(f"{'CIDR Prefix':<20}: {data['prefix']}") 
+    print(f"{'First Host':<20}: {data['first_host']}") 
+    print(f"{'Last Host':<20}: {data['last_host']}") 
+    print(f"{'Usable Hosts':<20}: {data['usable_hosts']}") 
+    print(f"{'Private Address':<20}: {data['private_status']}") 
+
+width = 80
 keep_going = True
 protocol:str = choose_protocol()
 if protocol == "exit":
     keep_going = False
 while keep_going == True:
-    if choice == "ipv4":
+    if protocol == "ipv4":
         choice = main_menu()
         if choice == 1:
             network_info = get_network() 
@@ -248,8 +324,27 @@ while keep_going == True:
             continue
         elif choice == 3:
             break
-    elif choice == "ipv6":
+    elif protocol == "ipv6":
         choice = main_menu_ipv6()
+        if choice == 1:
+            network_info = get_network_ipv6() 
+            network, ip_addr = network_info #tuple unpackaging 
+            data = calculate_informations_ipv6(network, ip_addr)
+            display_informations_ipv6(data)
+            print("")
+            finish = input(f"Press Enter to return")
+            print("")
+            continue
+        elif choice == 2:
+            network_info = get_network_ipv6()
+            network, ip_addr = network_info #tuple unpackaging 
+            subnet_calculator_ipv6(network)
+            print("")
+            finish = input(f"Press Enter to return")
+            print("")                
+            continue
+        elif choice == 3:
+            break
 
 
     
