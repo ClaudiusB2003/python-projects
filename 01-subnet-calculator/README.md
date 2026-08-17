@@ -163,6 +163,7 @@ subnet-calculator/
 │
 ├── main.py
 ├── CHANGELOG.md
+├── LICENSE
 └── README.md
 ```
 The structure will evolve as the project grows.
