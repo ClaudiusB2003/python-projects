@@ -77,3 +77,8 @@ This project follows Semantic Versioning.
 
 ### Notes
 - Initial public release.
+
+## [2.3.0] - 2026-08-17
+
+### Added
+- Automatic console clearing (`clear_screen()`) after returning from a menu, for improved readability across Windows and Unix-based systems
