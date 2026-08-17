@@ -1,4 +1,12 @@
 import ipaddress
+import os
+import platform
+
+def clear_screen():
+    if platform.system() == "Windows":
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def choose_protocol():
     while True:
@@ -304,6 +312,7 @@ if protocol == "exit":
     keep_going = False
 while keep_going == True:
     if protocol == "ipv4":
+        clear_screen()
         choice = main_menu()
         if choice == 1:
             network_info = get_network() 
@@ -313,6 +322,7 @@ while keep_going == True:
             print("")
             finish = input(f"Press Enter to return")
             print("")
+            clear_screen()
             continue
         elif choice == 2:
             network_info = get_network()
@@ -320,11 +330,13 @@ while keep_going == True:
             subnet_calculator(network)
             print("")
             finish = input(f"Press Enter to return")
-            print("")                
+            print("")
+            clear_screen()                
             continue
         elif choice == 3:
             break
     elif protocol == "ipv6":
+        clear_screen()
         choice = main_menu_ipv6()
         if choice == 1:
             network_info = get_network_ipv6() 
@@ -334,6 +346,7 @@ while keep_going == True:
             print("")
             finish = input(f"Press Enter to return")
             print("")
+            clear_screen()
             continue
         elif choice == 2:
             network_info = get_network_ipv6()
@@ -342,6 +355,7 @@ while keep_going == True:
             print("")
             finish = input(f"Press Enter to return")
             print("")                
+            clear_screen()
             continue
         elif choice == 3:
             break
