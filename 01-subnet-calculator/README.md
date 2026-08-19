@@ -7,7 +7,7 @@ This project is part of my learning journey and is being developed step by step.
 
 ---
 
-## Version 2.2
+## Version 2.3
 ![Subnet Calculator Screenshot](screenshot.png)
 
 ---
@@ -41,6 +41,8 @@ This project is part of my learning journey and is being developed step by step.
 - Python 3
 - Standard Library
   - `ipaddress`
+  - `os`
+  - `platform`
 
 No external dependencies are required.
 
