@@ -3,7 +3,7 @@ import os
 import platform
 
 def clear_screen():
-    if platform.system() == "Windows": os.system('cls') else: os.system('clear')
+    os.system('cls') if platform.system() == "Windows" else os.system('clear')
 
 def choose_protocol():
     while True:
